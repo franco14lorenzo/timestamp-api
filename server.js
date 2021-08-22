@@ -1,5 +1,4 @@
 // server.js
-// where your node app starts
 
 // init project
 var express = require('express');
@@ -18,28 +17,6 @@ app.use(express.static('public'));
 app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
-
-/* app.get('/api/:timestamp', (req, res) => {
-  let timestamp = req.params.timestamp
-  if (timestamp.match(/\d{5,}/)){
-    timestamp = +timestamp
-    let unix = timestamp
-    let utc = new Date(timestamp).toUTCString()
-    if (utc === "Invalid Date"){
-      res.json({"error": "Invalid Date"})
-    }else{
-      res.json({"unix": unix, "utc": utc})
-    }
-  } else{
-    let unix = new Date(timestamp).valueOf()
-    let utc = new Date(timestamp).toUTCString()
-    if (utc === "Invalid Date"){
-      res.json({"error": "Invalid Date"})
-    }else{
-      res.json({"unix": unix, "utc": utc})
-    }
-  }
-}) */
 
 app.get('/api/:timestamp', (req, res) => {
   let timestamp = req.params.timestamp
